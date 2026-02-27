@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Back to Top Button Logic
     const topBtn = document.querySelector('.floating-top');
     window.addEventListener('scroll', () => {
@@ -40,15 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // TOC Toggle
     const tocTitle = document.querySelector('.toc-title');
-    if (tocTitle) {
+    const tocListInitial = document.getElementById('toc-list');
+    if (tocTitle && tocListInitial) {
+        // Force closed on mobile, open on desktop by default
+        if (window.innerWidth < 768) {
+            tocListInitial.style.display = 'none';
+            tocTitle.querySelector('i').className = 'fas fa-chevron-down';
+        }
+
         tocTitle.addEventListener('click', () => {
-            const list = document.getElementById('toc-list');
             const icon = tocTitle.querySelector('i');
-            if (list.style.display === 'none') {
-                list.style.display = 'block';
+            if (tocListInitial.style.display === 'none') {
+                tocListInitial.style.display = 'block';
                 icon.className = 'fas fa-chevron-up';
             } else {
-                list.style.display = 'none';
+                tocListInitial.style.display = 'none';
                 icon.className = 'fas fa-chevron-down';
             }
         });

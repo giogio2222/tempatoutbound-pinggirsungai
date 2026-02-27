@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://outbound-sungai-malang.com/sitemap.xml
+Sitemap: https://offroad-batu.vercel.app/sitemap.xml
